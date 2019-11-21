@@ -8,12 +8,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.List;
 
-//@ErrorHandling(codeSpecific = {
-//        @ErrorCodes(codes = {401}, generate = NotAuthenticatedException.class),
-//}, defaultException = YourDefaultException.class)
 @FeignClient(name = "user" , url = "http://localhost:8080", configuration = FeignConfiguration.class)
 public interface UserClient {
 
+    //@ErrorHandling(codeSpecific = {
+    //        @ErrorCodes(codes = {404}, generate = UserNotFoundException.class),
+    //}, defaultException = YourDefaultException.class)
     @RequestMapping(method = RequestMethod.GET,path = "/users")
     List<User> getUsers();
 }
