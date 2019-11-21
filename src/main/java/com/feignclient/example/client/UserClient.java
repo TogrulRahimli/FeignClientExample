@@ -11,9 +11,8 @@ import java.util.List;
 @FeignClient(name = "user" , url = "http://localhost:8080", configuration = FeignConfiguration.class)
 public interface UserClient {
 
-    //@ErrorHandling(codeSpecific = {
-    //        @ErrorCodes(codes = {404}, generate = UserNotFoundException.class),
-    //}, defaultException = YourDefaultException.class)
+    //@ErrorHandling(codeSpecific = { @ErrorCodes(codes = {404}, generate = UserNotFoundException.class)},
+    //defaultException = YourDefaultException.class)
     @RequestMapping(method = RequestMethod.GET,path = "/users")
     List<User> getUsers();
 }
